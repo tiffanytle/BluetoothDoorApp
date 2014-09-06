@@ -54,7 +54,7 @@ public class MyActivity extends Activity {
         public PlaceholderFragment() {
         }
 
-        // fragmmentttt
+        // fragmmentttt changes
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
