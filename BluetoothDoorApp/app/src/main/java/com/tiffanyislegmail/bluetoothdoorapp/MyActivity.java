@@ -10,7 +10,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import android.widget.Button;
+import android.widget.TextView;
 
+import org.w3c.dom.Text;
 
 
 public class MyActivity extends Activity {
@@ -49,8 +52,9 @@ public class MyActivity extends Activity {
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends Fragment {
+    public static class PlaceholderFragment extends Fragment implements View.OnClickListener{
 
+        View rootView;
         public PlaceholderFragment() {
         }
 
@@ -59,8 +63,21 @@ public class MyActivity extends Activity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_my, container, false);
+            rootView = inflater.inflate(R.layout.fragment_my, container, false);
+
+            Button btn = (Button)rootView.findViewById(R.id.btnNum1);
+            btn.setOnClickListener(this);
             return rootView;
+        }
+
+        @Override
+        public void onClick(View v) {
+            switch (v.getId())
+            {
+                case R.id.btnNum1:
+                    ((TextView)rootView.findViewById(R.id.myTextView)).setText("You clicked the button!");
+                    break;
+            }
         }
     }
 }
